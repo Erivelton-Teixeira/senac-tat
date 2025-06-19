@@ -1,1 +1,53 @@
 Utilizando o github pela primeira vez...
+
+
+
+## 🔹 Como entrar no modo **root** no Linux:
+
+### 1. **Usando `su` (Switch User):**
+
+```bash
+su
+```
+
+* Você deve digitar a **senha do root**.
+* O prompt mudará de `$` para `#` indicando que agora você é o root.
+
+---
+
+### 2. **Usando `sudo -i`:**
+
+```bash
+sudo -i
+```
+
+* Transforma o terminal no modo root.
+* Vai pedir **sua senha de usuário** (se você tiver permissão sudo).
+
+---
+
+### 3. **Usando `sudo comando`:**
+
+```bash
+sudo comando
+```
+
+* Executa **um único comando como root**, sem mudar totalmente para o modo root.
+
+---
+
+## 🔹 Resumo rápido:
+
+| Método     | O que faz             | Senha necessária? |
+| ---------- | --------------------- | ----------------- |
+| `su`       | Entra como root       | Senha do root     |
+| `sudo -i`  | Modo root temporário  | Sua senha (sudo)  |
+| `sudo cmd` | Executa só um comando | Sua senha (sudo)  |
+
+---
+
+### ⚠️ Atenção:
+
+No modo **root** (prompt com `#`), qualquer comando pode afetar o sistema inteiro. Use com cuidado!
+
+Se quiser, posso mostrar um exemplo real de uso!
