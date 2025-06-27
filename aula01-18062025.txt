@@ -1,53 +1,81 @@
-Utilizando o github pela primeira vez...
+# 📦 Introdução ao APT, SUDO, ROOT e Case Sensitive no Linux
 
+Este documento é uma referência rápida sobre alguns dos conceitos e comandos fundamentais utilizados no terminal Linux.
 
+---
 
-## 🔹 Como entrar no modo **root** no Linux:
+## 🔧 O que é e para que serve o `apt`?
 
-### 1. **Usando `su` (Switch User):**
+**APT** (Advanced Package Tool) é um sistema de gerenciamento de pacotes usado em distribuições Linux baseadas em Debian, como o Ubuntu e o Linux Mint.
 
+### Para que serve:
+- Instalar programas: `sudo apt install nome-do-pacote`
+- Atualizar a lista de pacotes: `sudo apt update`
+- Atualizar programas instalados: `sudo apt upgrade`
+- Remover pacotes: `sudo apt remove nome-do-pacote`
+- Limpar pacotes não utilizados: `sudo apt autoremove`
+
+> O `apt` facilita a instalação, atualização e remoção de softwares diretamente pelo terminal.
+
+---
+
+## 🔐 O que é e para que serve o `sudo`?
+
+**SUDO** significa “**SuperUser DO**” (faça como superusuário).
+
+### Para que serve:
+- Permite que um usuário comum execute comandos com privilégios de administrador (root).
+- É utilizado antes de comandos que precisam de permissões elevadas, como instalar ou remover softwares, editar arquivos do sistema, etc.
+
+#### Exemplo:
 ```bash
-su
+sudo apt update
 ```
 
-* Você deve digitar a **senha do root**.
-* O prompt mudará de `$` para `#` indicando que agora você é o root.
+> Sem o `sudo`, o sistema não permitirá ações que afetam arquivos e configurações críticas.
 
 ---
 
-### 2. **Usando `sudo -i`:**
+## 👑 O que é e para que serve o `root`?
 
+**ROOT** é o usuário administrador do sistema Linux, com acesso total a todos os arquivos e comandos.
+
+### Características:
+- Pode modificar qualquer arquivo do sistema.
+- É utilizado com cautela, pois um erro pode comprometer o sistema inteiro.
+
+### Como saber se você é root?
+- Prompt com `#`: usuário root
+- Prompt com `$`: usuário comum
+
+### Entrar como root (com cautela):
 ```bash
-sudo -i
+sudo su
 ```
 
-* Transforma o terminal no modo root.
-* Vai pedir **sua senha de usuário** (se você tiver permissão sudo).
+> **Atenção:** Usar o root diretamente é perigoso. Prefira usar `sudo` para tarefas específicas.
 
 ---
 
-### 3. **Usando `sudo comando`:**
+## 🧠 O que é *Case Sensitive* no Linux?
 
-```bash
-sudo comando
-```
+**Case Sensitive** significa que o sistema diferencia letras **maiúsculas** e **minúsculas**.
 
-* Executa **um único comando como root**, sem mudar totalmente para o modo root.
+### Exemplos:
+- `sudo`, `Sudo` e `SUDO` são tratados como comandos diferentes.
+- Arquivos como `arquivo.txt` e `ARQUIVO.txt` podem coexistir no mesmo diretório.
 
----
-
-## 🔹 Resumo rápido:
-
-| Método     | O que faz             | Senha necessária? |
-| ---------- | --------------------- | ----------------- |
-| `su`       | Entra como root       | Senha do root     |
-| `sudo -i`  | Modo root temporário  | Sua senha (sudo)  |
-| `sudo cmd` | Executa só um comando | Sua senha (sudo)  |
+> No terminal Linux, sempre escreva comandos e nomes de arquivos com atenção às letras maiúsculas e minúsculas.
 
 ---
 
-### ⚠️ Atenção:
+## 📌 Resumo Visual
 
-No modo **root** (prompt com `#`), qualquer comando pode afetar o sistema inteiro. Use com cuidado!
+| Termo         | Significado                             | Exemplo prático       |
+|---------------|------------------------------------------|------------------------|
+| `apt`         | Gerenciador de pacotes                   | `sudo apt install vim`|
+| `sudo`        | Executar comando como administrador      | `sudo rm arquivo.txt` |
+| `root`        | Usuário administrador do sistema         | `sudo su`             |
+| CaseSensitive | Diferencia maiúsculas e minúsculas       | `sudo` ≠ `SUDO`       |
 
-Se quiser, posso mostrar um exemplo real de uso!
+---
